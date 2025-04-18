@@ -1,7 +1,25 @@
 <core:FragmentDefinition
+<<<<<<< HEAD
    xmlns="sap.m"
    xmlns:core="sap.ui.core" >
    <Dialog
       id="helloDialog"
       title="Hello {/recipient/name}"/>
 </core:FragmentDefinition>
+=======
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        id="helloDialog"
+        title="Hello {/recipient/name}"
+    >
+        <beginButton>
+            <Button
+                text="{i18n>dialogCloseButtonText}"
+                press=".onCloseDialog"
+            />
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>
+>>>>>>> parent of ed7ae09 (step 19 done)
