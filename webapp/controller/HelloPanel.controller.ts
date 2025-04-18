@@ -14,9 +14,13 @@ export default class HelloPanel extends Controller {
         // read msg from i18n model
         const recipient = (this.getView()?.getModel() as JSONModel)?.getProperty("/recipient/name");
         const resourceBundle = (this.getView()?.getModel("i18n") as ResourceModel)?.getResourceBundle() as ResourceBundle;
-        const msg = resourceBundle.getText("helloMsg", [recipient]) || "no text defined";
+        const msg = resourceBundle.getText("helloMsg", [recipient]);
         // show message
-        MessageToast.show(msg);
+        MessageToast.show(msg, {
+            duration: 30000,
+            autoClose: false,
+            closeOnBrowserNavigation: false
+        });
     }
     async onOpenDialog(): Promise<void> {
         this.dialog ??= await this.loadFragment({
@@ -24,9 +28,4 @@ export default class HelloPanel extends Controller {
         }) as Dialog;
         this.dialog.open();
     }
-    onCloseDialog(): void {
-        // note: We don't need to chain to the pDialog promise, since this event-handler
-        // is only called from within the loaded dialog itself.
-        (this.byId("helloDialog") as Dialog)?.close();
-    } 
 };
