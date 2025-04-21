@@ -5,7 +5,8 @@
   "description": "OpenUI5 TypeScript Walkthrough: Step 16 - Dialogs and Fragments",
   "private": true,
   "scripts": {
-    "start": "ui5 serve -o test/mockServer.html"
+    "start": "ui5 serve -o test/mockServer.html",
+    "test": "ui5 serve -o test/testsuite.qunit.html"
   },
   "devDependencies": {
     "@types/openui5": "^1.134.0",
