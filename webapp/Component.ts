@@ -7,12 +7,12 @@ import JSONModel from "sap/ui/model/json/JSONModel";
 export default class Component extends UIComponent {
     public static metadata = {
         "interfaces": ["sap.ui.core.IAsyncContentCreation"],
-        "manifest": "json" 
+        "manifest": "json"
     };
     init(): void {
         // call the init function of the parent
         super.init();
-        
+
         // set data model
         const data = {
             recipient: {
@@ -21,5 +21,7 @@ export default class Component extends UIComponent {
         };
         const model = new JSONModel(data);
         this.setModel(model);
+
+        this.getRouter().initialize();
     };
 };
