@@ -5,7 +5,6 @@
     xmlns:mvc="sap.ui.core.mvc"
 >
     <List
-        id="invoiceList"
         class="sapUiResponsiveMargin"
         width="auto"
         items="{
@@ -34,7 +33,7 @@
                 title="{invoice>Quantity} x {invoice>ProductName}"
                 number="{
                     parts: [
-                        'invoice>ExTendedPrice',
+                        'invoice>ExtendedPrice',
                         'view>/currency'
                     ],
                     type: 'Currency',
