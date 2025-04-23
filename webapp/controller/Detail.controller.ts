@@ -2,13 +2,14 @@ import Controller from "sap/ui/core/mvc/Controller";
 import UIComponent from "sap/ui/core/UIComponent";
 import { Route$PatternMatchedEvent } from "sap/ui/core/routing/Route";
 import History from "sap/ui/core/routing/History";
-import MessageBox from "sap/m/MessageBox";
-import ComponentC from "../Component";
 import Event from "sap/ui/base/Event";
 import Button from "sap/m/Button";
-import StandardListItem from "sap/m/StandardListItem";
 import Popover from "sap/m/Popover";
 import Page from "sap/m/Page";
+import MessageToast from "sap/m/MessageToast";
+import ProductRating, { ProductRating$ChangeEvent } from "../control/ProductRating";
+import ResourceBundle from "sap/base/i18n/ResourceBundle";
+import ResourceModel from "sap/ui/model/resource/ResourceModel";
 
 /**
  * @namespace ui5.walkthrough.controller
@@ -42,6 +43,9 @@ export default class Detail extends Controller {
     }
 
     onObjectMatched(event: Route$PatternMatchedEvent): void {
+
+        (<ProductRating>this.byId("rating")).reset();
+
         this.getView()?.bindElement({
             path: "/" + window.decodeURIComponent((event.getParameter("arguments") as any).invoicePath),
             model: "invoice"
@@ -92,5 +96,12 @@ export default class Detail extends Controller {
 
             router.navTo(route);
         }
+    }
+
+    onRatingChange(event: ProductRating$ChangeEvent): void {
+        const value = event.getParameter("value");
+        const resourceBundle = <ResourceBundle>(<ResourceModel>this?.getView().getModel("i18n"))?.getResourceBundle();
+
+        MessageToast.show(resourceBundle.getText("ratingConfirmation", [value]));
     }
 }
