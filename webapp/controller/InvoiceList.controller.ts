@@ -36,6 +36,13 @@ export default class InvoiceList extends Controller {
     onPress(event: Event): void {
         const item = event.getSource() as ObjectListItem;
         const router = UIComponent.getRouterFor(this);
+
+        const eventBus = this.getOwnerComponent()?.getEventBus();
+        eventBus?.publish("channelHistory", "eventHistory", {
+            route: "overview",
+            title: "Trang tổng quan",
+        });
+
         router.navTo("detail", {
             invoicePath: window.encodeURIComponent(item.getBindingContext("invoice").getPath().substring(1))
         });

@@ -4,6 +4,7 @@
     xmlns:mvc="sap.ui.core.mvc"
 >
     <Page
+        id="detailPage"
         title="{i18n>detailPageTitle}"
         showNavButton="true"
         navButtonPress=".onNavBack"

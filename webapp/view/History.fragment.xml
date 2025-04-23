@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Popover
+        id="historyPopover"
+        title="Lịch sử"
+    >
+        <List items="{history>/navigationHistory}">
+            <StandardListItem
+                type="Active"
+                title="{history>title}"
+                press=".onNavigateFromHistory"
+            />
+        </List>
+    </Popover>
+</core:FragmentDefinition>
