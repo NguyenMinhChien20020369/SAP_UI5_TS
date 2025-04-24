@@ -11,6 +11,7 @@ import ResourceModel from "sap/ui/model/resource/ResourceModel";
  * @namespace ui5.walkthrough.control
  */
 export default class ProductRating extends Control {
+
     constructor(idOrSettings?: string | $ProductRatingSettings);
     constructor(id?: string, settings?: $ProductRatingSettings);
     constructor(id?: string, settings?: $ProductRatingSettings) { super(id, settings); }
@@ -54,9 +55,11 @@ export default class ProductRating extends Control {
             iconSize: "2rem",
             liveChange: this._onRate.bind(this)
         }));
+
         this.setAggregation("_label", new Label({
             text: "{i18n>productRatingLabelInitial}"
         }).addStyleClass("sapUiSmallMargin"));
+
         this.setAggregation("_button", new Button({
             text: "{i18n>productRatingButton}",
             press: this._onSubmit.bind(this)
@@ -104,6 +107,7 @@ export default class ProductRating extends Control {
         apiVersion: 4,
         render: (rm: RenderManager, control: ProductRating) => {
             const tooltip = control.getTooltip_AsString();
+
             rm.openStart("div", control);
             rm.class("myAppDemoWTProductRating");
             if (tooltip) {
