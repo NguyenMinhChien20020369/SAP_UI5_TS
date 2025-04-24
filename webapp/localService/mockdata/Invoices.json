@@ -4,7 +4,7 @@
         "Quantity": 21,
         "ExtendedPrice": 87.2,
         "ShipperName": "Fun Inc.",
-        "ShippedDate": "2015-04-01T00:00:00",
+        "ShippedDate": "/Date(1427839200000)/",
         "Status": "A"
     },
     {
