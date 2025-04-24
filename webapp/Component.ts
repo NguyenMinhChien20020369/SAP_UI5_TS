@@ -42,6 +42,10 @@ export default class Component extends UIComponent {
         this.getRouter().initialize();
     };
 
+    getContentDensityClass(): string {
+        return Device.support.touch ? "sapUiSizeCozy" : "sapUiSizeCompact";
+    }
+
     addNavigationToHistory(channel: string, event: string, data: Object): void {
         const dataN = data as { route: string; title: string }
 
