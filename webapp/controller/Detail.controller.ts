@@ -44,7 +44,6 @@ export default class Detail extends Controller {
                 }
             });
         } else {
-            console.log("null");
         }
     }
 
@@ -78,12 +77,9 @@ export default class Detail extends Controller {
     }
 
     async onOpenHistoryMenu(event: Event): Promise<void> {
-        // const selectedItem1 = event.getSource() as Button;
-        // console.log("start", selectedItem1);
         this.historyMenu ??= await this.loadFragment({
             name: "ui5.walkthrough.view.History"
         }) as Popover;
-        console.log("start1", this.historyMenu);
         const popover = this.byId("historyPopover") as Popover;
         this.historyMenu.openBy(this.oButton);
     }
@@ -92,7 +88,6 @@ export default class Detail extends Controller {
         const selectedItem = event.getSource() as Button;
         const route = selectedItem.getBindingContext("history")?.getProperty("route");
         const router = UIComponent.getRouterFor(this);
-        console.log("1");
         if (route) {
 
             const eventBus = this.getOwnerComponent()?.getEventBus();

@@ -56,7 +56,6 @@ export default class Component extends UIComponent {
             title: dataN.title,
             route: dataN.route
         });
-        console.log(navigationHistory);
 
         historyModel.setProperty("/navigationHistory", navigationHistory);
     }
