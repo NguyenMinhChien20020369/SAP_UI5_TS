@@ -43,10 +43,7 @@
                         path: 'invoice>ShippedDate',
                         type: 'Date',
                         formatOptions: {
-                            style: 'long',
-                            source: {
-                                pattern: 'yyyy-MM-ddTHH:mm:ss'
-                            }
+                            style: 'long'
                         }
                     }"
                 />
